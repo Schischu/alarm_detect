@@ -4,13 +4,11 @@ Description=Alarm detect Systemd service
 [Service]
 Type=simple
 User=pi
-Group=raspberry
-ExecStart=python /home/pi/alarmDetect/alarmPush.py
+Group=pi
+WorkingDirectory=/home/pi/alarm_detect
+ExecStart=python /home/pi/alarm_detect/alarmPush.py
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
-TimeoutStopSec=10
 
 [Install]
 WantedBy=multi-user.target
-
-
